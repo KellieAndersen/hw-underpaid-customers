@@ -1,88 +1,25 @@
-"""melon_cost = 1.00
 
-customer1_name = "Joe"
-customer1_melons = 5
-customer1_paid = 5.00
-
-customer2_name = "Frank"
-customer2_melons = 6
-customer2_paid = 6.00
-
-customer3_name = "Sally"
-customer3_melons = 3
-customer3_paid = 3.00
-
-customer4_name = "Sean"
-customer4_melons = 9
-customer4_paid = 9.50
-
-customer5_name = "David"
-customer5_melons = 4
-customer5_paid = 4.00
-
-customer6_name = "Ashley"
-customer6_melons = 3
-customer6_paid = 2.00"""
-
-def incorrect_payment_list(path):
+def incorrect_payment_list(path): #create a function with a file/path as the parameter
     """Prints a list of customers whose payments were incorrect
      and what that payment was compared to the expected amount"""
-    payment_list = open(path)
+    payment_list = open(path) #open the file
 
-    for line in payment_list:
+    for line in payment_list: #for loop iterates over file lines
         line = line.rstrip()
-        content = line.split('|')
+        content = line.split('|') #splits file lines by '|' to make a list of strings
 
-        unknown_number = content[0]
-        customer_name = content[1]
-        expected_payment = float(content[2])
-        actual_payment = float(content[3])
+        unknown_number = content[0] #not sure what the first number in the file means. Maybe customer number?
+        customer_name = content[1] #assigned customer name to index 1 of the list
+        expected_payment = float(content[2]) #assigned the expected payment to index 2 of the list
+        actual_payment = float(content[3]) #assigned the actual payment to index 3 of the list
 
-        if expected_payment != actual_payment:
+        if expected_payment != actual_payment: #if statment says if the customer did not pay 
+            #the expected amount, then the program should print the statement specified.
             print(" {} paid ${:.2f}, but should have paid ${:.2f}".format( 
                 customer_name, actual_payment, expected_payment) )
    
-    payment_list.close()              
+    payment_list.close() #close the file             
 
 
-incorrect_payment_list("customer-orders.txt")
+incorrect_payment_list("customer-orders.txt") #run the function with my text file
 
-
-
-
-
-"""customer1_expected = customer1_melons * melon_cost
-if customer1_expected != customer1_paid:
-    print(f"{customer1_name} paid ${customer1_paid:.2f},",
-          f"expected ${customer1_expected:.2f}"
-          )
-
-customer2_expected = customer2_melons * melon_cost
-if customer2_expected != customer2_paid:
-    print(f"{customer2_name} paid ${customer2_paid:.2f},",
-          f"expected ${customer2_expected:.2f}"
-          )
-
-customer3_expected = customer3_melons * melon_cost
-if customer3_expected != customer3_paid:
-    print(f"{customer3_name} paid ${customer3_paid:.2f},",
-          f"expected ${customer3_expected:.2f}"
-          )
-
-customer4_expected = customer4_melons * melon_cost
-if customer4_expected != customer4_paid:
-    print(f"{customer4_name} paid ${customer4_paid:.2f},",
-          f"expected ${customer4_expected:.2f}"
-          )
-
-customer5_expected = customer5_melons * melon_cost
-if customer5_expected != customer5_paid:
-    print(f"{customer5_name} paid ${customer5_paid:.2f},",
-          f"expected ${customer5_expected:.2f}"
-          )
-
-customer6_expected = customer6_melons * melon_cost
-if customer6_expected != customer6_paid:
-    print(f"{customer6_name} paid ${customer6_paid:.2f},",
-          f"expected ${customer6_expected:.2f}"
-          )"""
