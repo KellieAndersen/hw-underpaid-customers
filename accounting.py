@@ -24,10 +24,10 @@ customer6_name = "Ashley"
 customer6_melons = 3
 customer6_paid = 2.00"""
 
-def incorrect_payment_list(file):
+def incorrect_payment_list(path):
     """Prints a list of customers whose payments were incorrect
      and what that payment was compared to the expected amount"""
-    payment_list = open(file)
+    payment_list = open(path)
 
     for line in payment_list:
         line = line.rstrip()
@@ -35,12 +35,13 @@ def incorrect_payment_list(file):
 
         unknown_number = content[0]
         customer_name = content[1]
-        expected_payment = content[2]
-        actual_payment = content[3]
+        expected_payment = float(content[2])
+        actual_payment = float(content[3])
 
         if expected_payment != actual_payment:
-            print(f"{customer_name} paid ${actual_payment:.2f},",
-                  f"expected ${expected_payment:.2f}"  )
+            print(" {} paid ${:.2f}, but should have paid ${:.2f}".format( 
+                customer_name, actual_payment, expected_payment) )
+   
     payment_list.close()              
 
 
