@@ -41,8 +41,11 @@ def incorrect_payment_list(file):
         if expected_payment != actual_payment:
             print(f"{customer_name} paid ${actual_payment:.2f},",
                   f"expected ${expected_payment:.2f}"  )
+    payment_list.close()              
 
-    
+
+incorrect_payment_list("customer-orders.txt")
+
 
 
 
